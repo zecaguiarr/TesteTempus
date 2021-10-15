@@ -354,7 +354,6 @@
     <Content Include="Views\DadosClientes\Details.cshtml" />
     <Content Include="Views\DadosClientes\Edit.cshtml" />
     <Content Include="Views\DadosClientes\Index.cshtml" />
-    <Content Include="Views\DadosClientes\Filtro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

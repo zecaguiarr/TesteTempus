@@ -1,0 +1,106 @@
+﻿@model IEnumerable<CadastroTempus.Models.dadosCliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+<body style="background-color:lightcyan">
+    <h2>Clientes</h2>
+
+    <p>
+        @Html.ActionLink("Cadastrar novo", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Renda)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+
+                @if (item.Renda <= 980)
+                {
+                    <td class="classea">
+                        R$@Html.DisplayFor(modelItem => item.Renda)
+                    </td>
+                }
+                @if (item.Renda > 980 && item.Renda <= 2500)
+                {
+                    <td class="classeb">
+                        R$@Html.DisplayFor(modelItem => item.Renda)
+                    </td>
+                }
+                @if (item.Renda > 2500)
+                {
+                    <td class="classec">
+                        R$@Html.DisplayFor(modelItem => item.Renda)
+                    </td>
+                }
+
+
+                <td>
+                    @Html.ActionLink("Editar dados", "Edit", new { id = item.TxtCpf }) |
+                    @Html.ActionLink("Detalhes", "Details", new { id = item.TxtCpf }) |
+                    @Html.ActionLink("Excluir", "Delete", new { id = item.TxtCpf })
+                </td>
+            </tr>
+           // @Html.ActionLink("Hoje", "Relatorio", new { id = "hoje" },  htmlAttributes: new { type="submit"})
+        }
+
+    </table>
+    
+
+    @*@using (Html.BeginForm("Filtro", "DadosClientes"))
+        {
+            @Html.TextBox("Nome", new { Nome =  this.Html })
+
+            <div class="form-group" style="align-content:center">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Cadastrar" class="btn btn-default" />
+                </div>
+            </div>
+        }*@
+    <style>
+
+
+        .classea {
+            background-color: red;
+            border-radius: 5px;
+            color: antiquewhite;
+            width: 100px;
+            
+        }
+
+        .classeb {
+            background-color: gold;
+            border-radius: 5px;
+            color: seashell;
+            width: 100px
+        }
+
+        .classec {
+            background-color: green;
+            border-radius: 5px;
+            color: antiquewhite;
+            width: 100px
+        }
+
+        .card {
+            display: block;
+            min-height: 90px;
+            width: 100%;
+            border-radius: 2px;
+            margin-bottom: 15px;
+        }
+    </style>
+    </body>

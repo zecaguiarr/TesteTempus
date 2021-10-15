@@ -1,0 +1,51 @@
+﻿@model CadastroTempus.Models.dadosCliente
+
+@{
+    ViewBag.Title = "Details";
+}
+<body style="background-color:lightcyan">
+    <h2>Dados do cliente</h2>
+
+    <div>
+        <h4>Detalhes</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+
+            <dt>
+                Data de Nascimento:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DtaNascimento)
+            </dd>
+
+            <dt>
+                Data de cadastro:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DtaCadastro)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Renda):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Renda)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Editar dados", "Edit", new { id = Model.TxtCpf }) |
+        @Html.ActionLink("Voltar", "Index")
+    </p>
+</body>
